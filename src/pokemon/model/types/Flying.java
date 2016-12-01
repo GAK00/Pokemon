@@ -1,6 +1,7 @@
 package pokemon.model.types;
 
-public class Flying
+public interface Flying
 {
-
+	public int Flap();
+	public int Glide();
 }
