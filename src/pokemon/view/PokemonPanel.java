@@ -28,12 +28,17 @@ public class PokemonPanel extends JPanel
 	private JTextArea advancedArea;
 
 
-	public PokemonPanel(PokemonController baseController, Pokemon[] Pokemon)
+	public PokemonPanel(PokemonController baseController, Pokemon[] pokemons)
 	{
+		String[] names = new String[pokemons.length];
+		for(int pos = 0; pos<pokemons.length; pos++)
+		{
+			names[pos] = pokemons[pos].getName();
+		}
 		this.baseController = baseController;
 		this.baseLayout = new SpringLayout();
 		this.updateButton = new JButton();
-		this.pokedexSelector = new JComboBox(new String[] { "Egg", "PikaChu", "Pokemon" });
+		this.pokedexSelector = new JComboBox(names);
 		this.healthLabel = new JLabel("Health:");
 		this.combatLabel = new JLabel("Attack:");
 		this.speedLabel = new JLabel("Speed:");
@@ -112,5 +117,10 @@ public class PokemonPanel extends JPanel
 
 	private void setupListeners()
 	{
+	}
+	
+	private void viewChanged()
+	{
+		
 	}
 }
