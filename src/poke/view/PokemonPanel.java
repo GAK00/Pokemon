@@ -1,11 +1,16 @@
-package pokemon.view;
+package poke.view;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 import javax.swing.*;
 
-import pokemon.controller.PokemonController;
-import pokemon.model.pokemon.Pokemon;
+import poke.controller.PokemonController;
+import poke.model.Pokemon;
+
+import java.util.Random;
 
 public class PokemonPanel extends JPanel
 {
@@ -28,17 +33,17 @@ public class PokemonPanel extends JPanel
 	private JTextArea advancedArea;
 
 
-	public PokemonPanel(PokemonController baseController, Pokemon[] pokemons)
+	public PokemonPanel(PokemonController baseController)
 	{
-		String[] names = new String[pokemons.length];
-		for(int pos = 0; pos<pokemons.length; pos++)
-		{
-			names[pos] = pokemons[pos].getName();
-		}
+		//String[] names = new String[pokemons.length];
+	//	for(int pos = 0; pos<pokemons.length; pos++)
+		//{
+			//names[pos] = pokemons[pos].getName();
+	//	}
 		this.baseController = baseController;
 		this.baseLayout = new SpringLayout();
 		this.updateButton = new JButton();
-		this.pokedexSelector = new JComboBox(names);
+		this.pokedexSelector = new JComboBox(new String[]{"greg"});
 		this.healthLabel = new JLabel("Health:");
 		this.combatLabel = new JLabel("Attack:");
 		this.speedLabel = new JLabel("Speed:");
@@ -117,10 +122,70 @@ public class PokemonPanel extends JPanel
 
 	private void setupListeners()
 	{
+		this.addMouseMotionListener(new MouseMotionListener()
+		{
+
+			@Override
+			public void mouseDragged(MouseEvent e)
+			{
+				setRandomColor();
+				if(Math.abs(e.getX()-updateButton.getX())<35&&Math.abs(e.getY()-updateButton.getY())<35)
+				{
+					updateButton.setLocation(e.getX(),e.getY());
+				}
+				
+			}
+
+			@Override
+			public void mouseMoved(MouseEvent e)
+			{
+				JOptionPane.showMessageDialog(null, "the mouse is moved from " + e.getX() +","+  e.getY());
+				
+			}
+			
+		});
+		this.addMouseListener(new MouseListener()
+		{
+
+			@Override
+			public void mouseClicked(MouseEvent e)
+			{
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e)
+			{
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e)
+			{
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e)
+			{
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e)
+			{
+				
+			}
+			
+		});
 	}
 	
 	private void viewChanged()
 	{
 		
+	}
+	private void setRandomColor(){
+		Random rand = new Random();
+		this.setBackground(new Color(rand.nextInt(255),rand.nextInt(255),rand.nextInt(255)));
 	}
 }

@@ -1,4 +1,4 @@
-package pokemon.model.types;
+package poke.model;
 
 public interface Flying
 {

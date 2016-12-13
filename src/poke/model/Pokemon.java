@@ -1,4 +1,4 @@
-package pokemon.model.pokemon;
+package poke.model;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -111,6 +111,24 @@ public abstract class Pokemon
 		}
 
 		return pokemon;
+	}
+
+	public void setHealth(int health)
+	{
+		this.hitPoints = health;
+		
+	}
+
+	public void setAttack(int attack)
+	{
+		this.attackPoints = attack;
+		
+	}
+
+	public void setSpeed(double speed)
+	{
+		this.speed = speed;
+		
 	}
 
 }

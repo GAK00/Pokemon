@@ -1,5 +1,4 @@
-package pokemon.model.pokemon;
-import pokemon.model.types.*;
+package poke.model;
 public class Zapdos extends Pokemon implements Electric, Flying 
 {
 
