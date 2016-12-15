@@ -43,7 +43,11 @@ public class PokemonPanel extends JPanel
 		this.baseController = baseController;
 		this.baseLayout = new SpringLayout();
 		this.updateButton = new JButton();
-		this.pokedexSelector = new JComboBox(new String[]{"greg"});
+		for(int index =0;index<baseController.getPokedex().size();index++)
+		{
+			
+		}
+		this.pokedexSelector = new JComboBox(baseController.getPokedex());
 		this.healthLabel = new JLabel("Health:");
 		this.combatLabel = new JLabel("Attack:");
 		this.speedLabel = new JLabel("Speed:");

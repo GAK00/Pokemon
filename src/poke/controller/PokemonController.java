@@ -55,5 +55,12 @@ public class PokemonController
 		// TODO Auto-generated method stub
 		return baseFrame;
 	}
+	public String[] pokeToName(ArrayList<Pokemon> currentPokeDex)
+	{
+		for(int index = 0;index<currentPokeDex.size())
+	}
+	{
+		
+	}
 	
 }
